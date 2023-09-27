@@ -1,23 +1,18 @@
-import logo from "./logo.svg"
+import { useState } from "react"
 import "./App.css"
-import Hello from "./components/Hello"
-import Maths from "./components/Maths"
+import Toggle from "./components/Toggle"
+import Show from "./components/Show"
 
 function App() {
+  const [show, setShow] = useState(true)
+
+  const toggleShow = () => setShow(previousShow => !previousShow)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <Maths />
-        <Maths />
-        <Maths />
-        {/* <Hello name="Raimo" />
-        <Hello name="Mari" />
-        <Hello
-          name="Juhan"
-          age={20}
-          school="TLU"
-        /> */}
-      </header>
+    <div className="Container">
+      <h1>Hi</h1>
+      <Show show={show} />
+      <Toggle toggleShow={toggleShow} />
     </div>
   )
 }
